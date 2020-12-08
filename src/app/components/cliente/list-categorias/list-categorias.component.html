@@ -1,0 +1,21 @@
+<div class="container" style="margin-bottom: 100px; text-align: center; ">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12"></div>
+            </div>
+
+            <div>
+                <h2 style="font-family:'samante'; margin-bottom: 50px; margin-top: 20px;">Haga su pedido</h2>
+            </div>
+
+            <div class="row cat" *ngIf="categorias.length > 0" style="text-align: center;">
+                <div class="col-md-4 col-sm-6 col-12" style="margin-bottom: 50px;" *ngFor="let categoria of categorias">
+                    <img src="{{categoria.imagen}}" class="img-fluid img-thumbnail" alt="" style="height: 300px; width: 350px; margin-bottom: 20px;" (click)="cargarProductos(categoria.id)" [routerLink]="['/cliente/list-productos']">
+                    <span class="" style="font-family:'samante';">{{categoria.nombre}}</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

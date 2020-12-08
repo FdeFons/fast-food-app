@@ -1,0 +1,190 @@
+<!doctype html>
+<h2 style="text-align: center;">Productos</h2>
+<div class="container" style="margin-bottom: 100px; text-align: center;">
+    <div class="row">
+        <div class="col-12" style="margin-top: 30px;">
+            <button style="color: black;" class="btn btn-warning" (click)="open(content)"><strong>Añadir Producto</strong></button>
+            <table class="table table-image" style="margin-top: 10PX; text-align: center;">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Novedad</th>
+                        <th scope="col">Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of productos | paginate: config">
+                        <th scope="row"></th>
+
+                        <td class="w-25">
+                            <img src="{{product.imagen}}" class="img-fluid img-thumbnail" alt="Sheep" style="height: 200px; width: 250px;">
+                        </td>
+                        <td>{{product.nombre}}</td>
+                        <td>{{product.precio}} €</td>
+                        <td>{{product.descripcion}}</td>
+                        <td>{{product.categoria}}</td>
+                        <td>{{product.novedad == true ? 'Si' : 'No'}}</td>
+
+                        <td>
+                            <div>
+                                <button type="button" class="btn btn-info" (click)='openEditar(contentEditar, product)' style="margin-bottom: 20px;">Editar</button>
+                                <button type="button" class="btn btn-danger" (click)="eliminarProducto(product.id)">Eliminar</button></div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls class="my-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
+
+            <!-- Modal para añadir producto -->
+            <!-- Modal Añadir-->
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Nuevo Producto:</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <form [formGroup]="produForm">
+                                <div class='form-group'>
+                                    <label for="">Nombre: </label>
+                                    <input type="text" class="form-control " [ngClass]="(nombre.valid)?'is-valid':classNombre" formControlName="nombre" placeholder="Introduce un nombre">
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for="">Descripción: </label>
+                                    <input type="text" class="form-control " [ngClass]="(descripcion.valid)?'is-valid':classDescripcion" formControlName="descripcion" placeholder="Introduce una descripción">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Precio: </label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control" [ngClass]="(precio.valid)?'is-valid':classPrecio" formControlName="precio" placeholder="Introduce un precio">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">€</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Imagen:</label>
+                                    <input type="file" class="form-control-file" [ngClass]="(imagenPro.valid)?'is-valid':classImagenPro" formControlName="imagenPro" (change)="imagenUp($event)">
+                                    <div class="valid-feedback">Imagen válida.</div>
+                                    <div class="invalid-feedback">Introduce una imagen.</div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5">
+                                        <label for="">Novedad:</label>
+                                        <select class="form-control" [ngClass]="(novedad.valid)?'is-valid':classNovedad" formControlName="novedad">
+                                            <option selected [ngValue]="false">No</option>
+                                            <option [ngValue]="true">Si</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-7">
+                                        <label for="">Categoría:</label>
+                                        <select class="form-control" formControlName="id_categoria" [ngClass]="(id_categoria.valid)?'is-valid':classId_Categoria">
+                                      <option *ngFor="let item of categorias" value="{{item.id}}">{{item.nombre}}</option>
+                                    </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="alert alert-dismissible alert-danger" style="margin-top: 10px;" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="guardarProducto(produForm.value)">Guardar</button>
+                </div>
+
+            </ng-template>
+
+            <!-- Modal Editar-->
+            <ng-template #contentEditar let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Editar Producto:</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <form [formGroup]="produFormEdit">
+                                <div class='form-group'>
+                                    <label for="">Nombre: </label>
+                                    <input type="text" class="form-control " [ngClass]="(nombreE.valid)?'is-valid':classNombreE" formControlName="nombreE" placeholder="Introduce un nombre">
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for="">Descripción: </label>
+                                    <input type="text" class="form-control " [ngClass]="(descripcionE.valid)?'is-valid':classDescripcionE" formControlName="descripcionE" placeholder="Introduce una descripción">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Precio: </label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control" [ngClass]="(precioE.valid)?'is-valid':classPrecioE" formControlName="precioE" placeholder="Introduce un precio">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">€</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Imagen:</label>
+                                    <input type="file" class="form-control-file" [ngClass]="(imagenProE.valid)?'is-valid':classImagenProE" formControlName="imagenProE" (change)="imagenUp($event)">
+                                    <!-- <div class="valid-feedback">Imagen válida.</div> -->
+                                    <div class="invalid-feedback">Introduce una imagen.</div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5">
+                                        <label for="">Novedad:</label>
+                                        <select class="form-control" [ngClass]="(novedadE.valid)?'is-valid':classNovedadE" formControlName="novedadE">
+                                            <option selected [ngValue]="false">No</option>
+                                            <option [ngValue]="true">Si</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-7">
+                                        <label for="">Categoría:</label>
+                                        <select class="form-control" formControlName="id_categoriaE" [ngClass]="(id_categoriaE.valid)?'is-valid':classId_CategoriaE">
+                                      <option *ngFor="let item of categorias" value="{{item.id}}">{{item.nombre}}</option>
+                                    </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="alert alert-dismissible alert-danger" style="margin-top: 10px;" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="editarProducto(produFormEdit.value)">Actualizar</button>
+                </div>
+
+            </ng-template>
+
+        </div>
+    </div>
+</div>

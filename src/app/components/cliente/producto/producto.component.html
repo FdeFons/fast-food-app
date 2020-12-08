@@ -1,0 +1,45 @@
+<div class="container" style="margin-bottom: 100px; text-align: center;">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row prod" *ngIf="producto$ | async as producto" style="text-align: center;">
+                        <div class="col-sm-12" style="margin-bottom: 50px; text-align: center; font-size: 25px; background-size: contain;">
+                            <img src="assets/images/novedad.png" [class]="producto.novedad == true? 'img-fluid img-thumbnail' : 'oculto'" style="height: 130px; width: 130px; position: absolute;">
+                            <img src="{{producto.imagen}}" class="img-fluid img-thumbnail" alt="" style="height: 600px; width: 650px; margin-bottom: 20px;">
+                            <br><br>
+                            <span class="" style="font-family:'samante';">{{producto.nombre}}</span>
+                            <br><br>
+                            <span style="font-size: 25px; ">{{producto.descripcion}}</span>
+                            <br><br>
+                            <span style="font-size: 40px; ">Precio: {{producto.precio}} €</span>
+                            <br><br><br>
+                            <button class="btn btn-success col-sm-4 " style="width: 80%; font-weight: bold; margin-right: 20px; font-size: 20px;" (click)="addProductoPedido(producto)">Añadir Producto</button>
+                            <button class="btn btn-success col-sm-4 " style="width: 80%; font-weight: bold; font-size: 20px;" (click)="volver()">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal add producto -->
+<ng-template #addProducto let-modal>
+    <div class="modal-header" style="text-align: center;">
+        <h4 class="modal-title" id="modal-basic-title" style="text-align: center;">Pedido:</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="text-align: center; font-size: 30px;">
+
+        <i class="fa fa-check" style="font-size: 100px; color: #28a745;"></i>
+        <br><br>
+        <span>Producto añadido</span>
+        <br><br>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" style="font-size: 25px; font-weight: bold;" (click)="modal.dismiss('Cross click')">Seguir comprando</button>
+    </div>
+</ng-template>

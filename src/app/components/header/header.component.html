@@ -1,0 +1,48 @@
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12" style="font-size: 20px;">
+        <a routerLink=""><img src="assets/images/logo/logo_circulo.png" height="75" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse justify-content-end navbar-nav navbar-center" id="nav-content" *ngIf="isAdminn()">
+            <ul class="navbar-nav mr-auto" *ngIf="user$ | async as user ">
+                <!--</ul> *ngIf="user$ | async as user "> -->
+                <li class="nav-item dropdown" *ngIf="user.role == 'ADMIN' || user.role == 'EMPLEADO'">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Opciones</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink='admin/producto' style="font-size: 20px;">Productos</a>
+                        <a class="dropdown-item" routerLink='admin/categorias' style="font-size: 20px;">Categorías</a>
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='admin/pedidos' style="font-size: 20px;">Pedidos</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="mx-auto" style="color: white; font-family:'samante'; text-shadow: 0 -4px 0 rgba(0, 0, 0, 0.25);">FastFood</p>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end navbar-nav navbar-center" id="nav-content">
+            <!-- metodo para saber el usuario actualmente logeado -->
+            <ul class="navbar-nav" *ngIf="user$ | async as user ; else login">
+
+                <li class="nav-item" *ngIf="user">
+                    <a routerLink='login' class="nav-link" (click)="onLogout()">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">{{ user?.email }}</a>
+                </li>
+            </ul>
+            <ul>
+                <ng-template #login>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='login'>Login</a>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+    </nav>
+</header>
+<p></p>

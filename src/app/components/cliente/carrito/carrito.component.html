@@ -1,0 +1,123 @@
+<div class="modal-header">
+    <span class="modal-title" id="modal-basic-title" style="text-align: center;" style="font-size: 25px; font-size: 30px; text-align: center;">Pedido:</span>
+    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button> -->
+</div>
+<div class="modal-body">
+    <div class="row" id="carrito">
+        <div class="col-sm-12 carritoo">
+            <!-- Mensaje de que el carrito está vacio -->
+            <div class="col-12 text-center" style="font-size: 25px; color: #999; margin-top: 50px; margin-bottom: 50px;" *ngIf="!carritolleno()">
+                <span class="no-elements">No hay Productos aún.</span>
+            </div>
+            <!-- Con el carrito lleno -->
+            <div class="col-12" *ngIf="carritolleno()">
+                <div class="row" *ngFor="let producto of carrito; ">
+                    <div class="col-lg-3 col-md-12">
+                        <img src="{{producto.imagen}}" class="img-fluid img-thumbnail" alt="Sheep" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="col-lg-3 col-md-12 text-center">
+                        <span>{{producto.nombre}}</span>
+                    </div>
+                    <div class="col-lg-3 col-md-12 text-center">
+                        <span>{{producto.precioPedido | number: '1.1-2' }} €</span>
+                    </div>
+                    <div class="col-lg-3 col-md-12 text-center">
+                        <i class="fa fa-minus-circle mr-3" (click)="quit1Producto(producto)"></i>
+                        <span>{{producto.cantidad}}</span>
+                        <i class="fa fa-plus-circle ml-3" (click)="add1Producto(producto)"></i>
+                    </div>
+                    <!-- <div>
+                        <i class="fa fa-plus-circle ml-3" (click)="add1Producto(producto)"></i>
+                    </div> -->
+
+                    <hr class="w-100">
+
+                </div>
+                <!-- Total pedido precio -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="d-block text-center">Precio total: {{TotalPedido() | number: '1.1-2' }} €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" data-dismiss="modal" style="font-size: 25px;" (click)="metodoPagoo(TotalPedido())">Hacer pedido</button>
+    <button type="button" class="btn btn-outline-dark" style="font-size: 25px;" (click)="seguirComprando()">Seguir comprando</button>
+</div>
+
+
+
+<!-- Modal pedido realizado -->
+<ng-template #pedidoRealizado let-modal>
+    <div class="modal-header" style="text-align: center;">
+        <span class="modal-title" id="modal-basic-title" style="text-align: center;">Pedido Realizado </span>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close('close')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="text-align: center;">
+
+        <span style="font-size: 25px;">¡¡¡Gracias por su pedido!!! <i class="fa fa-hand-peace" style="font-size: 30px;"></i></span>
+        <br><br>
+        <span style="font-size: 20px;">Su número de pedido es <div style="color: tomato; font-size: 50px;">&nbsp; {{this.numPedido }} &nbsp;</div>  {{(pago == 'cash') ? 'vaya al mostrador y espere para pagar': 'vaya al mostrador y espere su pedido.'}} </span>
+
+    </div>
+    <div class="modal-footer" style=" font-size: 30px;">
+        <button type="button" class="btn btn-success" (click)="modal.close('close')">Aceptar</button>
+    </div>
+</ng-template>
+
+
+<!-- Modal método de pago -->
+<ng-template #metodoPago let-modal>
+    <div class="modal-header" style="text-align: center;">
+        <span class="modal-title" id="modal-basic-title" style=" font-size: 30px;">Elige un método de pago </span>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close('close')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body zoom" style="text-align: center;">
+
+        <div class="type-payment" (click)="modal.close('paypal')">
+            <i class="fa fas fa-paypal" style="color:  #3b7bbf; margin-right: 15px;"></i>
+            <i class="fa fab fa-cc-visa" style="color: #ffa500; "></i>
+            <p>Paypal o Tarjeta de crédito</p>
+        </div>
+
+        <div class="type-payment" (click)="modal.close('cash')">
+            <i class="fa fa-money" style="color: #20C319;"></i>
+            <p>Efectivo</p>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" style=" font-size: 30px;" class="btn btn-danger" (click)="modal.close('close')">Cancelar</button>
+    </div>
+</ng-template>
+
+
+
+<!-- Modal paypal -->
+<ng-template #modal_paypal let-modal>
+    <div class="modal-header" style="text-align: center;">
+        <span class="modal-title" id="modal-basic-title" style=" font-size: 30px;">Elige un método de pago </span>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close('close')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body zoom" style="text-align: center; margin-top: 20px;">
+
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" style=" font-size: 30px;" class="btn btn-danger" (click)="modal.close('close')">Cancelar</button>
+    </div>
+</ng-template>

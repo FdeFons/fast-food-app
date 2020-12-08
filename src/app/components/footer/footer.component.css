@@ -1,0 +1,15 @@
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.but :hover {
+    transition: transform .2s;
+    transform: scale(1.05);
+}
+
+.but :hover img {
+    transform: none;
+}

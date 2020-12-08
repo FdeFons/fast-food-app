@@ -1,0 +1,114 @@
+<!doctype html>
+<h2 style="text-align: center;">Categorías</h2>
+<div class="container" style="margin-bottom: 100px; text-align: center; ">
+    <!-- *ngIf="categoria$ | async as categoria" -->
+    <div class="row">
+
+        <div class="col-12" style="margin-top: 30px;">
+            <!-- <button style="margin-right: 10px; color: black; " type="button" class="btn btn-warning" data-toggle="modal" data-target="#addproducto"><strong>AÑADIR</strong></button>-->
+            <button style="color: black;" class="btn btn-warning" (click)="open(content)"><strong>Añadir Categoría</strong></button>
+            <table class="table table-image" style="margin-top: 10PX; text-align: center;">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categorias | paginate: config ">
+                        <td></td>
+                        <td class="w-25">
+                            <img src="{{item.imagen}}" class="img-fluid img-thumbnail" alt="Sheep" style="height: 200px; width: 250px;">
+                        </td>
+                        <td>{{item.nombre}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" (click)="openEditar(contentEditar, item)" style="margin-right: 10px;">Editar</button>
+                            <button type="button" class="btn btn-danger" (click)="eliminarCategoria(item.id)">Eliminar</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls class="my-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
+            <ng-template #conte> loading... </ng-template>
+
+
+
+            <!-- Modal Añadir-->
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Nueva Categoría</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <form [formGroup]="cateForm">
+                                <!-- (ngSubmit)="guardarCategoria(cateForm.value)"> -->
+                                <div class='form-group'>
+                                    <label for="">Nombre: </label>
+                                    <input type="text" class="form-control " [ngClass]="(nombre.valid)?'is-valid':classNombre" formControlName="nombre" placeholder="Introduce un nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Imagen:</label>
+                                    <input type="file" class="form-control-file " [ngClass]="(imagenCat.valid)?'is-valid':classImagenCat" formControlName="imagenCat" (change)="imagenUp($event)">
+                                    <div class="valid-feedback">Imagen válida.</div>
+                                    <div class="invalid-feedback">Introduce una imagen. </div>
+                                </div>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="alert alert-dismissible alert-danger" style="margin-top: 10px;" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="guardarCategoria(cateForm.value)">Guardar</button>
+                </div>
+
+            </ng-template>
+
+            <!-- Modal Editar -->
+            <ng-template #contentEditar let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Editar Categoría:</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <form [formGroup]="cateFormEdit">
+                                <!-- (ngSubmit)="guardarCategoria(cateForm.value)"> -->
+                                <div class='form-group'>
+                                    <label for="">Nombre: </label>
+                                    <input type="text" class="form-control " [ngClass]="(nombreE.valid)?'is-valid':classNombreE" formControlName="nombreE" placeholder="Introduce un nombre">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Imagen:</label>
+                                    <input type="file" class="form-control-file" [ngClass]="(imagenCatE.valid)?'is-valid':classImagenCatE" formControlName="imagenCatE" (change)="imagenUp($event)">
+                                    <div class="valid-feedback">Imagen válida.</div>
+                                    <div class="invalid-feedback">Introduce una imagen. </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="editarCategoria(cateFormEdit.value)">Actualizar</button>
+                </div>
+                <div class="alert alert-dismissible alert-danger" style="margin-top: 10px;" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

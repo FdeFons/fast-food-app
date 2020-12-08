@@ -1,0 +1,28 @@
+<p></p>
+<footer id="footer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12" style="font-size: 20px;">
+
+
+        <div class="col-md-12 copy" style="color: white;" *ngIf="user$ | async as user ">
+            <div class="text-center footer-copyright py-3" *ngIf="user.role == 'ADMIN' || user.role == 'EMPLEADO'">&copy; Copyright 2020 - FastFood. All rights reserved.</div>
+
+            <div class="text-center but " *ngIf="user.role == 'CLIENTE' ">
+                <button type="button" class="btn btn-info col-sm-4 " style="width: 80%; font-weight: bold; font-size: 25px; margin-right: 40px;" [routerLink]="['/cliente/list-categorias']">Menú principal <i class="fa fa-home"></i></button>
+                <button type="button" class="btn btn-info col-sm-4" style="width: 80%; font-weight: bold; font-size: 25px;" (click)="open(carrito)">Mi pedido <i class="fa fa-plus-circle"></i></button>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-12 copy" style="color: white;">
+            <div class="text-center footer-copyright py-3">&copy; Copyright 2020 - FastFood. All rights reserved.</div>
+        </div>
+
+
+    </nav>
+</footer>
+
+<!-- Modal carrito -->
+<ng-template #carrito let-modal>
+    <app-carrito></app-carrito> <!-- aqui llamamos al componente del carrito -->
+</ng-template>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fast-food-01": {
+      "hosting": {
+        "fast-food-app": [
+          "fast-food-01"
+        ]
+      }
+    }
+  }
+}

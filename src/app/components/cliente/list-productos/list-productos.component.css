@@ -1,0 +1,12 @@
+.prod :hover {
+    transition: transform .2s;
+    transform: scale(1.15);
+}
+
+.prod :hover img {
+    transform: none;
+}
+
+.oculto {
+    display: none;
+}

@@ -1,0 +1,6 @@
+.oculto{
+    display: none;
+}
+.my-pagination /deep/ .ngx-pagination .current {
+    background: gray;
+}

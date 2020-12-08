@@ -1,0 +1,45 @@
+0000000000000000000000000000000000000000 5aa8f549da6c0d1d574af2d5148ace0aa5af99cc unknown <fdefons@gmail.com> 1605108608 +0100	clone: from https://github.com/FdeFons/fast-food-app.git
+5aa8f549da6c0d1d574af2d5148ace0aa5af99cc 287d483bc61c7ab2b5f49c4b6ef0f6b38d660133 unknown <fdefons@gmail.com> 1605138051 +0100	commit: aspectos visuales
+287d483bc61c7ab2b5f49c4b6ef0f6b38d660133 287d483bc61c7ab2b5f49c4b6ef0f6b38d660133 Alfonso <fdefons@gmail.com> 1605197283 +0100	reset: moving to HEAD
+287d483bc61c7ab2b5f49c4b6ef0f6b38d660133 03e751f1a6d2c08941f80814a0b9bbc2c4f201b6 Alfonso <fdefons@gmail.com> 1605197301 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+03e751f1a6d2c08941f80814a0b9bbc2c4f201b6 dc6fdc7509ede8a18caa639e030644ae17493906 Alfonso <fdefons@gmail.com> 1605228155 +0100	commit: navbar
+dc6fdc7509ede8a18caa639e030644ae17493906 dc6fdc7509ede8a18caa639e030644ae17493906 Alfonso <fdefons@gmail.com> 1605283677 +0100	reset: moving to HEAD
+dc6fdc7509ede8a18caa639e030644ae17493906 dc6fdc7509ede8a18caa639e030644ae17493906 Alfonso <fdefons@gmail.com> 1605283703 +0100	reset: moving to HEAD
+dc6fdc7509ede8a18caa639e030644ae17493906 8e9a63495a177521823b807cb97fdfc6b3cdbe70 Alfonso <fdefons@gmail.com> 1605283714 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+8e9a63495a177521823b807cb97fdfc6b3cdbe70 ff22af48fd38edfa3d8ae1203f7ea03902276712 Alfonso <fdefons@gmail.com> 1605354202 +0100	commit: Todo desinstalado para probar versiones antiguas
+ff22af48fd38edfa3d8ae1203f7ea03902276712 5b835e5540e0749626d76202378f7d1ce1a0b3f5 Alfonso <fdefons@gmail.com> 1605358799 +0100	commit: parece que funciona
+5b835e5540e0749626d76202378f7d1ce1a0b3f5 24f22a48497d8677444c20f1a138e186291778ee Alfonso <fdefons@gmail.com> 1605481879 +0100	commit: login con validaciones
+24f22a48497d8677444c20f1a138e186291778ee a0f7e880bbec73dca91acf3553959c422dc108a6 Alfonso <fdefons@gmail.com> 1605543583 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+a0f7e880bbec73dca91acf3553959c422dc108a6 2c48093befaeac11603e2419bbeefb441826f223 Alfonso <fdefons@gmail.com> 1605569719 +0100	commit: n
+2c48093befaeac11603e2419bbeefb441826f223 4bcdab3a13a72095fd922ab87897f9bb02f8ca66 Alfonso <fdefons@gmail.com> 1605626820 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+4bcdab3a13a72095fd922ab87897f9bb02f8ca66 de7e0838f255635e94acbea3b19b1ffd34970b04 Alfonso <fdefons@gmail.com> 1605654072 +0100	commit: n
+de7e0838f255635e94acbea3b19b1ffd34970b04 9f5135783405cc413169d10a7aedc78d6a7f6b7b Alfonso <fdefons@gmail.com> 1605715407 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+9f5135783405cc413169d10a7aedc78d6a7f6b7b 53a2573c845373e29e075735cc5b9f7fc541c37f Alfonso <fdefons@gmail.com> 1605739004 +0100	commit: n
+53a2573c845373e29e075735cc5b9f7fc541c37f 53a2573c845373e29e075735cc5b9f7fc541c37f Alfonso <fdefons@gmail.com> 1605804966 +0100	reset: moving to HEAD
+53a2573c845373e29e075735cc5b9f7fc541c37f 69c0936d1991325ac3e755a5745324359f6cadbd Alfonso <fdefons@gmail.com> 1605804970 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+69c0936d1991325ac3e755a5745324359f6cadbd 23d0a3a1208fc392a3d290202dcd2ffcdf2440dd Alfonso <fdefons@gmail.com> 1605827671 +0100	commit: n
+23d0a3a1208fc392a3d290202dcd2ffcdf2440dd 529c80e99742be8e3a309a6102e128276bff3b17 Alfonso <fdefons@gmail.com> 1605893818 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+529c80e99742be8e3a309a6102e128276bff3b17 70cdd67d1f64d0591cd1938dc1db30af105aa26b Alfonso <fdefons@gmail.com> 1606086095 +0100	commit: crud fallido
+70cdd67d1f64d0591cd1938dc1db30af105aa26b cf3d146d7d0bfc9291c9508cef6f431b92d0429a Alfonso <fdefons@gmail.com> 1606146824 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+cf3d146d7d0bfc9291c9508cef6f431b92d0429a 777a2764362e8cc218f95a426532c14ef62c0e27 Alfonso <fdefons@gmail.com> 1606172993 +0100	commit: n
+777a2764362e8cc218f95a426532c14ef62c0e27 fe9583171ead806757ad2b76ea9480f065e0505a Alfonso <fdefons@gmail.com> 1606230192 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+fe9583171ead806757ad2b76ea9480f065e0505a 10e782232a65ae4d5d4aeb358a634cc37305ad6f Alfonso <fdefons@gmail.com> 1606259475 +0100	commit: avance
+10e782232a65ae4d5d4aeb358a634cc37305ad6f 731be98b5fd77d3cf1558f05e18a2bf1c18b2908 Alfonso <fdefons@gmail.com> 1606321057 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+731be98b5fd77d3cf1558f05e18a2bf1c18b2908 598db9112877cd8539786ee6983a19a4069ddd88 Alfonso <fdefons@gmail.com> 1606346479 +0100	commit: avance1
+598db9112877cd8539786ee6983a19a4069ddd88 d77c98d6ec8b3071c3b08f2df266fa472e04828c Alfonso <fdefons@gmail.com> 1606404848 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+d77c98d6ec8b3071c3b08f2df266fa472e04828c 5e51bfd9ce4558f2770240ddcc94d6ae0da317c6 Alfonso <fdefons@gmail.com> 1606433385 +0100	commit: guards1
+5e51bfd9ce4558f2770240ddcc94d6ae0da317c6 e7be8facc91e6990030c94f85f60df6d3b9d179e Alfonso <fdefons@gmail.com> 1606490336 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+e7be8facc91e6990030c94f85f60df6d3b9d179e bc05c31d9faf85786a10c9e05f31a9b7662697c9 Alfonso <fdefons@gmail.com> 1606691109 +0100	commit: validaciones
+bc05c31d9faf85786a10c9e05f31a9b7662697c9 3e0715abf523634fd88b6523ed1c863c12748c38 Alfonso <fdefons@gmail.com> 1606750796 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+3e0715abf523634fd88b6523ed1c863c12748c38 4c1d6cf018a31c779962eefabe72f661ee9d6095 Alfonso <fdefons@gmail.com> 1606782177 +0100	commit: catalogo2
+4c1d6cf018a31c779962eefabe72f661ee9d6095 9e6453991dfe2ec55e0f01c601aa34b767c27125 Alfonso <fdefons@gmail.com> 1606834774 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+9e6453991dfe2ec55e0f01c601aa34b767c27125 452208602c5d63aa6faee7b28bcf91206b5086c2 Alfonso <fdefons@gmail.com> 1606864538 +0100	commit: carrito
+452208602c5d63aa6faee7b28bcf91206b5086c2 c2638246f70f657a3ece324a7401596fbc3791f8 Alfonso <fdefons@gmail.com> 1606924766 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+c2638246f70f657a3ece324a7401596fbc3791f8 01dd628954b7e544ae37f4926d30dcddb6b70559 Alfonso <fdefons@gmail.com> 1606952099 +0100	commit: carrito3
+01dd628954b7e544ae37f4926d30dcddb6b70559 691d007273e0012908072d5794823ce80c29ba7e Alfonso <fdefons@gmail.com> 1607011279 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+691d007273e0012908072d5794823ce80c29ba7e 467cb8cbe94e54f2f1bca8bbb60c5894f63feb92 Alfonso <fdefons@gmail.com> 1607040465 +0100	commit: carrito terminado
+467cb8cbe94e54f2f1bca8bbb60c5894f63feb92 b4aa740b9d65ad57eeaf82123032ec9b907e95b5 Alfonso <fdefons@gmail.com> 1607097091 +0100	pull --no-commit https://github.com/FdeFons/fast-food-app.git: Fast-forward
+b4aa740b9d65ad57eeaf82123032ec9b907e95b5 5d940e8e1e854f3e2a871e4d3143b4f87fc8caca Alfonso <fdefons@gmail.com> 1607362239 +0100	commit: Ultimos retoques
+5d940e8e1e854f3e2a871e4d3143b4f87fc8caca 2555fbe638d4dd8b6b85605df5152db482d9124b Alfonso <fdefons@gmail.com> 1607444886 +0100	commit: Ultimos retoques
+2555fbe638d4dd8b6b85605df5152db482d9124b 0000000000000000000000000000000000000000 Alfonso <fdefons@gmail.com> 1607445120 +0100	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 2555fbe638d4dd8b6b85605df5152db482d9124b Alfonso <fdefons@gmail.com> 1607445120 +0100	Branch: renamed refs/heads/master to refs/heads/main
