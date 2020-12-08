@@ -30,7 +30,7 @@ export class PedidoService {
   /* Obtener los pedidos */
   getAllPedidos(){
     return this.db
-      .collection('pedidos' , ref => ref.orderBy('fecha',"desc"))
+      .collection('pedidos' , ref => ref.where('terminado','==', false))
       .snapshotChanges()
       .pipe(
         map(actions =>
