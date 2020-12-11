@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
-
 import { categoriaI } from './../models/categoria.interface';
 import { FileI } from './../models/file.interface';
 import { delay, finalize, map } from 'rxjs/operators';
@@ -92,59 +91,3 @@ export class CategoriasService {
   
 
 }
-
-
-
-// metodos de Javier
-
-
-    /* getAll() {
-      return this.db
-        .collection('categorias')
-        .snapshotChanges()
-        .pipe(
-          map(actions =>
-            actions.map(a => {
-              const data = a.payload.doc.data() as any;
-              const id = a.payload.doc.id;
-              return { id, ...data };
-            })
-          )
-        );
-    }
- 
-    private  cargaCategorias() {
-      this.getAll().subscribe(
-        categorias =>{
-          this.categorias = categorias;
-          console.log('Categorias rt', categorias);
-        }
-      );
-    } */
-
-    // Metodos mios
-
-    
-     /*  public getAll() {
-        return this.db.collection('categorias').snapshotChanges()
-        .pipe(map( action => action
-          .map(c => {
-            const data = c.payload.doc.data() as categoriaI;
-            const id = c.payload.doc.id;
-            return { id, ...data };
-          })));
-      }
-
-       public getAll():Observable<any[]> {
-        return this.db.collection('categorias')
-        .snapshotChanges()
-        .pipe(
-          map(actions=>
-            actions.map(a => {
-              const data = a.payload.doc.data() as categoriaI;
-              const id = a.payload.doc.id;
-              return {id, ...data};
-            })
-          )
-        )
-      }  */

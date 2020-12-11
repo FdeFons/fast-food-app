@@ -19,7 +19,6 @@ export class CarritoComponent implements OnInit {
   public pago;
 
   public payPalConfig ? : IPayPalConfig;
-  //ultPedido = [];
 
   @ViewChild("carritoo", {static: false})carritoo;
   @ViewChild("metodoPago", {static: false})metodoPago;
@@ -172,7 +171,6 @@ export class CarritoComponent implements OnInit {
             this.convertirPedido(pTotalPedido, this.pago);
           }
          
-        
           this.modalService.open(this.modal_paypal, {size: 'xl', centered: true}).result;
 
         }

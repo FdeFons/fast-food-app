@@ -31,15 +31,6 @@ export class LoginService extends RoleValidator {
 
 
 //metodo de login
-  /* async login(email: string, password: string){
-      const result = await this.afAuth.signInWithEmailAndPassword(email , password);
-      this.token = await result.user.getIdToken();   //con esto vemos el token de acceso creado
-      console.log('Token = ', this.token);
-      console.log('id', result.user.uid);   // ver UID del usuario
-      console.log('user ', result.user);
-      return result;
-  } */
-
   async login(email: string, password: string): Promise<UserI>{
       const {user} = await this.afAuth.signInWithEmailAndPassword(email , password);  //destructuring del objeto de usuario {user}
       this.token = await user.getIdToken();
@@ -62,10 +53,10 @@ export class LoginService extends RoleValidator {
     } catch (error) {
       console.log(error);
     }
-    // redirigir al usuario al home
-    //En caso de tener alguna información en el localstorage referente al usuario vaciarla
+ 
   }
-// metodo registrarse
+  
+// metodo registrarse// no se utiliza
   async register(email: string, password: string){
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email , password);
@@ -74,10 +65,6 @@ export class LoginService extends RoleValidator {
       console.log(error);
     }
   }
-// metodo para coger el usuario actualmente logeado
-  // getCurrentUser(){
-  //   return this.afAuth.authState.pipe(first()).toPromise();
-  // }
 
   private updateUser(user:UserI){
     const userRef : AngularFirestoreDocument<UserI> = this.db.doc(`users/${user.uid}`);

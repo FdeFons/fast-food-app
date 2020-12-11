@@ -21,8 +21,6 @@ const routes: Routes = [
   },
   
   { path: '**', component: NotFoundComponent }
-
-  /* { path: 'product/:id', component: productComponent} */
   
 ];
 

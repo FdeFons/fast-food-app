@@ -7,45 +7,22 @@ import { FileI } from '../models/file.interface';
 import { categoriaI } from './../models/categoria.interface';
 import { productsI } from './../models/products.interface';
 
-/** import firestoreCollection para las interfaces de los datos */
-
-//posible borrado
-export interface productsID extends productsI{id: string;};
-export interface categoryID extends categoriaI{};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
-  /* productos: Observable<productsID[]>;
-     categorias: Observable<any>;
- */
   listProduct: Observable<any[]>;
   product: Observable<any[]>;
 
   productosRef = this.db.collection("productos", ref => ref.orderBy('nombre',"asc"));
 
 
-  
   //imagenes
   private filePath: any;
   private imageUrl: Observable<string>;
 
-  constructor(
-    private db:AngularFirestore,
-    private storage:AngularFireStorage
-    ) {
-    //this.categoriasCollection = db.collection<Icategory>('categorias');
-    
-    //  this.productosCollection = db.collection<productsI>('productos');
-    // this.productos = this.productosCollection.snapshotChanges().pipe(
-    //   map(actions => actions.map(a => {
-    //     const data = a.payload.doc.data() as productsI;
-    //     const id = a.payload.doc.id;
-    //     return{ id, ...data};
-    //   }))
-    // );  
-   }
+  constructor(private db:AngularFirestore, private storage:AngularFireStorage) {}
 
    
 

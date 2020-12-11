@@ -52,9 +52,12 @@ export class PedidosComponent implements OnInit {
   }
 
   terminarPedido(pedido: pedidoI){
-    this.pedidoService.terminarPedido(pedido).then(res=>{
-      this.cargaPedidos();
-    });
+    if(pedido.pagado){
+      this.pedidoService.terminarPedido(pedido).then(res=>{
+        this.cargaPedidos();
+      });
+    }
+
   }
 
 
