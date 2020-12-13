@@ -43,7 +43,7 @@ export class ProductosService {
 
   /* Obtener productos según la novedad */
   getAllProductosNov(){
-    return this.db.collection("productos", ref => ref.where('novedad', "==", true)).valueChanges({ idField: 'idProducto' });
+    this.listProduct = this.db.collection("productos", ref => ref.where('novedad', "==", true)).valueChanges({ idField: 'idProducto' });
   }
     
   /* Crear un nuevo producto */  

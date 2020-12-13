@@ -189,6 +189,8 @@ export class CarritoComponent implements OnInit {
 
   /* Crear Modelo del pedido que guardamos en firebase */
   convertirPedido(pTotalPedido:number, pago:string){
+
+    this.dosDecimales(pTotalPedido);
     if(this.carrito.length!=0){
       this.numPedido = this.pedidoService.ultPedido[0].numPedido + 1; // el numero de pedido lo hemos cogido previamente al abrir el carrito
       // Creamos modelo del pedido final que guardaremos en firebase 

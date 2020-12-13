@@ -40,7 +40,13 @@ export class ListCategoriasComponent implements OnInit {
 
   /* Obtenemos todos los productos de una categoria */
   cargarProductos(id:any){
-    this.productosService.getAllProductosCat(id);
+
+    if(id=="npcv8zFTkTczj9rd0PUI"){
+      this.productosService.getAllProductosNov();
+    }else{
+      this.productosService.getAllProductosCat(id);
+    }
+    
   }
 
 }
